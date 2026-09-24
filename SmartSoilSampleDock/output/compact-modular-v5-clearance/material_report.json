@@ -1,0 +1,71 @@
+{
+  "01_front_electronics_module.stl": {
+    "bounds_mm": [
+      120.0,
+      82.75,
+      65.9
+    ],
+    "volume_cm3": 64.2,
+    "watertight_mesh": true
+  },
+  "02_rear_soil_dock.stl": {
+    "bounds_mm": [
+      120.0,
+      79.0,
+      80.0
+    ],
+    "volume_cm3": 101.6,
+    "watertight_mesh": true
+  },
+  "03_removable_sample_cup.stl": {
+    "bounds_mm": [
+      73.0,
+      73.0,
+      58.0
+    ],
+    "volume_cm3": 54.1,
+    "watertight_mesh": true
+  },
+  "04_TFT_face_6mm_TACT_BUTTONS.stl": {
+    "bounds_mm": [
+      110.0,
+      68.61,
+      35.39
+    ],
+    "volume_cm3": 17.4,
+    "watertight_mesh": true
+  },
+  "05_probe_bridge.stl": {
+    "bounds_mm": [
+      92.0,
+      15.0,
+      6.0
+    ],
+    "volume_cm3": 6.3,
+    "watertight_mesh": true
+  },
+  "06_sliding_electronics_carrier_ESP32_PH.stl": {
+    "bounds_mm": [
+      108.0,
+      62.0,
+      6.4
+    ],
+    "volume_cm3": 16.9,
+    "watertight_mesh": true
+  },
+  "07_DHT22_ventilated_clip.stl": {
+    "bounds_mm": [
+      24.0,
+      34.0,
+      11.0
+    ],
+    "volume_cm3": 3.2,
+    "watertight_mesh": true
+  },
+  "estimate": {
+    "combined_mesh_volume_cm3": 263.8,
+    "solid_PLA_equivalent_g_at_1.24": 327,
+    "previous_compact_v2_solid_equivalent_g": 264,
+    "note": "Prototype dimensions remain provisional; slice before printing."
+  }
+}

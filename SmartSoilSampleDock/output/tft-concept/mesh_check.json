@@ -1,0 +1,11 @@
+{
+  "bounds_mm": [
+    150.0,
+    180.0,
+    95.0
+  ],
+  "watertight_mesh": true,
+  "connected_shells": 1,
+  "volume_mm3": 781568.2452020296,
+  "status": "concept_not_fit_validated"
+}

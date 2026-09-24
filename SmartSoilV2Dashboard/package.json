@@ -1,0 +1,10 @@
+{
+  "name": "smart-soil-probe-ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/logic.test.js && node tests/api.test.mjs",
+    "serve": "node server.mjs"
+  }
+}

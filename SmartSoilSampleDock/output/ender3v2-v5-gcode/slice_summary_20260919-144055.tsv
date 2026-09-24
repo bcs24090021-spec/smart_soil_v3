@@ -1,0 +1,8 @@
+part	grams	filament_mm	print_time	filename
+01_front_electronics_module	72.08	24168.09	7h 57m 23s	V5_01_FRONT_72G.gcode
+02_rear_soil_dock	89.06	29861.48	6h 55m 55s	V5_02_REAR_89G.gcode
+03_removable_sample_cup	50.57	16956.40	3h 51m 38s	V5_03_CUP_51G.gcode
+04_TFT_face_6mm_TACT_BUTTONS	43.85	14703.61	5h 1m 30s	V5_04_TFTBTN_44G.gcode
+05_probe_bridge	4.04	1353.81	26m 50s	V5_05_PROBE_4G.gcode
+06_sliding_electronics_carrier_ESP32_PH	15.86	5319.02	1h 10m 44s	V5_06_TRAY_16G.gcode
+07_DHT22_ventilated_clip	3.81	1277.63	21m 57s	V5_07_DHT_4G.gcode

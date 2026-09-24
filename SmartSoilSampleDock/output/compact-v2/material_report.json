@@ -1,0 +1,44 @@
+{
+  "01_compact_integrated_chassis.stl": {
+    "bounds_mm": [
+      120.0,
+      145.87,
+      80.0
+    ],
+    "volume_cm3": 174.9,
+    "watertight_mesh": true
+  },
+  "02_compact_sloped_TFT_face.stl": {
+    "bounds_mm": [
+      114.0,
+      69.51,
+      35.82
+    ],
+    "volume_cm3": 19.7,
+    "watertight_mesh": true
+  },
+  "03_compact_probe_bridge.stl": {
+    "bounds_mm": [
+      92.0,
+      12.0,
+      6.0
+    ],
+    "volume_cm3": 5.1,
+    "watertight_mesh": true
+  },
+  "04_compact_vented_service_plate.stl": {
+    "bounds_mm": [
+      114.0,
+      64.0,
+      3.0
+    ],
+    "volume_cm3": 13.1,
+    "watertight_mesh": true
+  },
+  "estimate": {
+    "combined_mesh_volume_cm3": 212.7,
+    "solid_PLA_equivalent_g_at_1.24": 264,
+    "previous_150x181_version_solid_equivalent_g": 395,
+    "note": "Prototype dimensions remain provisional; slice before printing."
+  }
+}

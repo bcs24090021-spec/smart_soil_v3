@@ -1,0 +1,11 @@
+crop_id,crop_name_en,fao_crop_variant,p_taw,assumed_fc_vwc_pct,assumed_wp_vwc_pct,estimated_stress_onset_vwc_pct,metric,source_url
+2,Corn,Maize field grain,0.55,25,12,17.9,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+2,Corn,Maize sweet,0.50,25,12,18.5,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+3,Sweet potato,Sweet Potato,0.65,25,12,16.6,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+5,Sugarcane,Sugar Cane,0.65,25,12,16.6,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+9,Rubber,Rubber Trees,0.40,25,12,19.8,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+19,Eggplant,Egg Plant,0.45,25,12,19.2,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+21,Onion,Onions dry or green,0.30,25,12,21.1,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+23,Pumpkin,Pumpkin Winter Squash,0.35,25,12,20.5,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+25,Cucumber,Cucumber fresh market or machine harvest,0.50,25,12,18.5,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm
+28,Banana,Banana first or second year,0.35,25,12,20.5,illustrative_stress_onset_not_optimum,https://www.fao.org/4/x0490e/x0490e0e.htm

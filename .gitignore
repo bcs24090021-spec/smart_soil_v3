@@ -1,0 +1,15 @@
+# Build / dependencies
+node_modules/
+.pio/
+.pioenvs/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/

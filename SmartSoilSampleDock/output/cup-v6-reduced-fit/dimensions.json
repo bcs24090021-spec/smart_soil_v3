@@ -1,0 +1,17 @@
+{
+  "replacement_for": "V5_03_CUP_51G.gcode; do not print the old cup again",
+  "cup_outer_diameter_mm": 64.0,
+  "cup_inner_diameter_mm": 58.0,
+  "cup_wall_mm": 3.0,
+  "cup_height_mm": 58.0,
+  "cup_bottom_mm": 4.0,
+  "cup_center_y_mm": 33.0,
+  "dock_clearance_nominal_mm": {
+    "front_joining_wall": 2.0,
+    "rear_wall": 2.0,
+    "receiver_bore_minimum_radial": 4.200000000000003
+  },
+  "fit_gauge_height_mm": 8.0,
+  "stl_watertight": true,
+  "note": "Nominal CAD dimensions only. Print the 8 mm gauge and check physical fit first."
+}

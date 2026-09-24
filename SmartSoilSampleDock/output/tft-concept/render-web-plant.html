@@ -1,0 +1,14 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#b8d8cd}#stage{width:360px;height:390px}canvas{width:100%;height:100%;display:block}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"}}</script>
+</head><body><div id="stage"><canvas id="plant"></canvas></div>
+<script type="module">
+import { DigitalTwin } from './web-three-plant.js';
+const twin = new DigitalTwin(document.getElementById('plant'));
+twin.setCondition('healthy', 0, 80);
+twin.animating = false;
+twin.controls.update();
+twin.renderer.render(twin.scene, twin.camera);
+window.renderReady = true;
+</script></body></html>

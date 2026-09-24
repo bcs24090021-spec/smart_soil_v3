@@ -1,0 +1,822 @@
+FARMSANDBOX AI / HARDWARE CONCEPT
+
+Smart Soil 一体式土壤检测站
+面向 Hackathon 的详细 Concept Brief
+
+一句话概念：用户把固定量泥土与固定量蒸馏水放入一体式测试容器，按下测试后，系统读取
+pH、湿度和温度，并把结果转换成容易理解的土壤状态与改善建议。
+
+用户主要动作
+
+第一阶段参数
+
+当前定位
+
+3个
+
+3项
+
+Prototype
+
+加泥土 / 加水 / 开始
+
+pH / Moisture / Temperature
+
+概念验证，不是实验室认证
+
+版本：Concept V1.1 | 语言：中文 | 适用对象：项目组员、导师与 Hackathon 评审
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第1页
+
+01 / PRODUCT INTENT
+
+我们要解决什么问题
+很多农民或种植者能够看到泥土的外观，却难以快速判断泥土是否太酸、太湿、太干，或当前条件是否适合目标作物
+。传统检测可能需要多个仪器、重复取样和专业解释。
+本项目把样本容器、Sensor、ESP32 和结果界面整合为一个简单操作流程，让非技术用户也能完成基础土壤检查。
+
+目标用户体验
+“我只需要放入泥土、加入指定水量并按下测试，系统就告诉我目前土壤状况
+，以及下一步应该做什么。”
+第一阶段要做到
+范围
+
+具体目标
+
+成功标准
+
+物理装置
+
+一体式开放泥土槽、电子舱和探针支架
+
+可重复放置相同体积样本
+
+测量
+
+pH、泥土湿度、泥土温度
+
+读数稳定并附带可信度提示
+
+操作
+
+加泥土、加水、按 Start Test
+
+组员无需了解接线即可测试
+
+输出
+
+状态、警告、基础改善建议
+
+不直接展示难懂的原始电压
+
+第一阶段暂时不做
+不纳入
+
+原因
+
+实验室级土壤认证
+
+原型无法替代标准实验室分析
+
+准确 NPK 浓度
+
+pH、湿度和 EC 不能识别具体氮磷钾离子
+
+永久埋地监测
+
+PH4502C 玻璃电极不适合长期留在泥浆中
+
+自动施肥或灌溉
+
+先验证测量和解释流程，再考虑执行机构
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第2页
+
+02 / USER JOURNEY
+
+用户实际怎么操作
+1
+
+2
+
+3
+
+4
+
+5
+
+取样
+
+加泥土
+
+加水
+
+等待
+
+测试
+
+>
+取有代表性的泥土
+
+>
+加入到 SOIL 刻度
+
+>
+
+>
+
+加入到 WATER 刻度
+
+搅拌并静置
+
+按 Start Test
+
+建议的标准化样本流程
+步骤
+
+用户动作
+
+系统或设计要求
+
+1
+
+取约 20 g 风干并去除石块的泥土
+
+样本来源和深度应尽量一致
+
+2
+
+把泥土加入可拆卸 PP 内杯
+
+达到 SOIL 刻度线
+
+3
+
+加入约 50 mL 蒸馏水
+
+形成约 1:2.5 soil:water 测试比例
+
+4
+
+搅拌 30-60 秒并静置 5-10 分钟
+
+让可测液相形成；最终时间需实验确定
+
+5
+
+把 pH 探针降入上层悬液
+
+玻璃头不能用来刺穿硬土
+
+6
+
+按 Start Test
+
+系统检查稳定性并取得多次样本平均值
+
+7
+
+查看结果并清洗容器和 pH 探针
+
+pH 探针清洗后放回 KCl 储存液
+
+蒸馏水怎样购买？ Hackathon 可以使用超市或药房出售、瓶身明确写 Distilled Water / Air Suling
+且没有添加矿物质的产品。不要使用矿泉水或添加矿物质的饮用水。
+
+为什么水量必须固定？ 同一块泥土加入不同水量，测出的 pH 与 EC
+可能不同。固定泥土质量、固定水量、固定等待时间，才能比较不同样本。
+
+异常情况
+情况
+
+系统提示
+
+样本太干或没有加水
+
+请加入指定水量后重新测试
+
+pH 数值持续漂移
+
+检查校准、气泡、探针储存状态与接线
+
+湿度读数超出合理范围
+
+重新插入探针并检查是否接触容器壁
+
+温度变化过快
+
+等待样本与探针达到热平衡
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第3页
+
+03 / SENSOR STRATEGY
+
+每一个 Sensor 到底测什么
+Sensor
+
+测量对象
+
+信号
+
+关键限制
+
+PH4502C + BNC pH 电极
+
+土壤悬液的酸碱度
+
+液体模拟输出
+
+需要 pH 4.00 / 7.00 校准；不可硬插干土
+
+Capacitive Soil Moisture v1.2
+
+相对含水状态
+
+模拟输出
+
+必须针对容器与泥土类型做 dry/wet calibration
+
+Waterproof DS18B20
+
+泥土或悬液温度
+
+1-Wire 数字
+
+需要 4.7 kΩ 上拉电阻
+
+EC Sensor - Phase 2
+
+整体溶解盐/离子导电性
+
+模拟或数字
+
+只能反映总体盐分，不能识别具体 NPK
+
+为什么不是直接 Focus 在所有 ions？
+pH 与氢离子活度有关；EC 反映溶液整体导电能力。要分别测量 NO3-、K+、NH4+ 或 PO4 等特定离子，需要
+Ion-Selective Electrode（ISE）、专用放大电路、标准液和频繁校准，成本与维护难度远高于本阶段。
+正确表述：系统能够测量 pH、相对湿度与温度，并可在未来加入 EC
+来判断总体盐分风险；系统不能仅凭这些参数宣称已经测出准确 NPK。
+
+PH4502C 套装在本项目中的角色
+
+图片中的套装包含 BNC 玻璃 pH 电极与信号板，适合读取
+液体或土壤悬液。它比机械指针式 3-in-1 Soil Meter
+更容易连接 ESP32，但仍属于原型级方案。
+购买前确认：是否包含探针、板、连接线、pH 4/7
+校准液或校准粉，以及 KCl 储存液。
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第4页
+
+04 / pH MEASUREMENT
+
+pH 测量为什么要这样做
+pH 电极实际上测量液相中的电化学响应。干土无法提供稳定的离子迁移与电极接触，因此本项目采用固定比例的
+soil-water slurry（土壤悬液）方法。
+泥土样本
+
+蒸馏水
+
+初始等待
+
+20 g
+
+50 mL
+
+5-10 min
+
+固定取样量
+
+约 1:2.5 比例
+
+最终由实验确定
+
+每次测试前
+检查
+
+要求
+
+两点校准
+
+使用 pH 4.00 与 pH 7.00 标准液建立转换关系
+
+探针状态
+
+玻璃球完整、保持湿润，没有干燥结晶或明显污染
+
+电路
+
+PH4502C 供电稳定；输出不超过 ESP32/ADS1115 安全输入范围
+
+温度
+
+记录 DS18B20 温度；温差较大时等待稳定
+
+读数接受条件
+条件
+
+建议规则
+
+稳定性
+
+连续多次读数变化小于预设阈值才接受
+
+时间
+
+超过最大等待时间仍漂移则标记为 Low Confidence
+
+范围
+
+超出合理 pH 范围时先要求重新校准，而不是直接给农业建议
+
+重复测量
+
+同一样本至少进行 2-3 次验证，记录平均值与差异
+
+测试后维护
+用蒸馏水轻柔冲洗 pH 电极，不要擦拭玻璃球；按照电极要求放入 KCl
+储存液。不能让探针长期留在泥浆中，也不能长期泡在蒸馏水里。
+Hackathon 展示时应说“标准化土壤悬液 pH
+原型”，不要说“直接插土、即时实验室级检测”。这样的表述更可信。
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第5页
+
+05 / HARDWARE ARCHITECTURE
+
+硬件与信号怎样连接
+信号路径
+1
+
+2
+
+3
+
+4
+
+5
+
+样本
+
+Sensor
+
+调理
+
+ESP32
+
+结果
+
+>
+泥土 + 蒸馏水
+
+>
+pH / 湿度 / 温度
+
+>
+PH4502C + ADS1115
+
+>
+采样、过滤、校准
+
+Dashboard / 建议
+
+核心模块
+模块
+
+主要连接
+
+设计注意
+
+ESP32 DevKit V1
+
+Wi-Fi、I2C、1-Wire、ADC
+
+所有模块必须共地；USB 负责供电与烧录
+
+ADS1115
+
+I2C 接 ESP32
+
+用于较稳定地读取 pH 或湿度模拟电压
+
+PH4502C
+
+5V 供电、模拟输出
+
+先实测输出范围；必要时用分压保护 ADC
+
+Moisture Sensor
+
+3.3V、模拟输出
+
+不要让上方电子元件浸水
+
+DS18B20
+
+3.3V、GPIO、4.7 kΩ
+
+采用防水金属探头版本
+
+推荐采样逻辑
+阶段
+
+动作
+
+Warm-up
+
+上电后等待 pH 模块与传感器稳定
+
+Acquire
+
+每个参数连续采样多次，不采用单点瞬时读数
+
+Filter
+
+去除异常值并计算平均值或中位数
+
+Calibrate
+
+应用 pH 两点校准、湿度 dry/wet 校准和 ADC 修正
+
+Validate
+
+检查范围、漂移、传感器断线与样本条件
+
+Publish
+
+输出数值、状态标签、可信度与建议
+
+ESP32 内置 ADC 的参考电压存在芯片差异，也容易受噪声影响。若使用内置
+ADC，应校准并进行多次采样；若使用 ADS1115，也仍需验证输入电压范围和接地。
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第6页
+
+06 / PHYSICAL DESIGN
+
+一体式 3D 结构与下一版修改
+
+区域
+
+当前功能
+
+V2 必须修改
+
+圆形开放槽
+
+放置测试泥土
+
+加入 20 g / 50 mL 或等效 SOIL/WATER 刻度
+
+Sensor 横梁
+
+定位探针
+
+把旧 3-in-1 双槽改成 PH4502C 玻璃探针保护套
+
+电子舱
+
+放置 ESP32 与 ADS1115
+
+增加防溅边、排线固定和可维修入口
+
+隔墙
+
+分隔湿区与干区
+
+验证水位低于隔墙并增加密封处理
+
+样本内杯
+
+当前仅概念要求
+
+加入可拆洗 PP 内杯及防旋转定位
+
+设计原则
+湿区与电子区必须物理分开；玻璃 pH
+电极只能垂直降入悬液，不能承担刺穿泥土的机械力；用户接触的操作点应清楚标识 SOIL、WATER、START 和
+CLEAN。
+当前状态：现有 V1 STL 已验证能够在 Ender-3 V2 平台切片，但它仍是外形与空间概念模型。购买 PH4502C
+实物并量尺寸后，才应完成可打印 V2。
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第7页
+
+07 / RESULT LOGIC
+
+系统怎样从读数变成建议
+系统不应直接把一个 Sensor 数字变成确定结论。正确流程是先验证数据，再结合目标作物与规则库进行解释。
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Raw
+
+Calibrated
+
+Validated
+
+Classified
+
+Advice
+
+>
+原始电压与温度
+
+>
+换算 pH / 湿度
+
+>
+
+>
+
+检查漂移与范围
+
+Low / Good / High
+
+解释与下一步
+
+示例输出逻辑
+观察
+
+可以给的建议
+
+不能直接宣称
+
+pH 偏低
+
+土壤偏酸；复测并参考目标作物 pH 范围
+
+一定需要加入多少石灰
+
+pH 偏高
+
+土壤偏碱；确认水源和样本，再考虑改良
+
+确定缺少某一种养分
+
+湿度偏低
+
+样本较干；补水后重新完成标准化测量
+
+整块农田都缺水
+
+湿度偏高
+
+样本过湿；注意排水和根部缺氧风险
+
+已经发生根腐病
+
+未来 EC 偏高
+
+可能存在盐分或肥料浓度过高风险
+
+准确知道是哪一种盐或肥料
+
+Dashboard 最少要显示
+显示项
+
+例子
+
+数值
+
+pH 5.4 / Moisture 62% / Temperature 28.3°C
+
+状态
+
+偏酸 / 湿度正常 / 温度偏高
+
+可信度
+
+High / Medium / Low，以及低可信度原因
+
+建议
+
+重新校准、补水复测、参考目标作物范围
+
+测试条件
+
+泥土量、水量、等待时间、测试日期
+
+AI 可以帮助解释和组织建议，但不能弥补错误的采样、未校准 Sensor
+或缺失的养分数据。第一阶段应先把标准化测试流程做好。
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第8页
+
+08 / BOM & BUDGET
+
+硬件预算与方案选择
+物品
+
+数量
+
+预算 RM
+
+ESP32 DevKit V1
+
+1
+
+29.90
+
+Capacitive Soil Moisture Sensor v1.2
+
+1
+
+10.00
+
+Waterproof DS18B20
+
+1
+
+8.00
+
+ADS1115
+
+1
+
+10.00
+
+PH4502C 完整套装
+
+1
+
+69.99
+
+电阻、线材、洞洞板、USB
+
+1套
+
+18.00
+
+M3 螺丝、PP 内杯、绝缘材料
+
+1套
+
+12.00
+
+当前完整原型
+
+PH4502C 套装
+
+严格 RM100
+
+RM157.89
+
+RM69.99
+
+无法全买
+
+不含运费与打印材料
+
+按用户截图价格
+
+需复用模块或延后 pH
+
+三种选择
+方案
+
+做法
+
+优点
+
+限制
+
+A - 推荐 MVP
+
+PH4502C + 湿度 + 温度
+
+较可信、可连接 ESP32
+
+必须加水、清洗和校准
+
+B - 最低预算
+
+先做湿度 + 温度
+
+最快完成硬件
+
+暂时没有 pH
+
+C - 直接插土
+
+RS485 Soil pH Probe
+
+用户操作最简单
+
+约 RM245，需 9-24V 和
+RS485 模块
+
+采购决定：先向卖家确认 RM69.99 套装是否包含 BNC 电极、PH4502C
+板、连接线、校准液/粉和储存液。缺少关键配件时不要下单。
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第9页
+
+09 / EXECUTION PLAN
+
+如何把 Concept 变成 Hackathon Demo
+实施阶段
+阶段
+
+主要工作
+
+完成标准
+
+Phase 1 - Bench Test
+
+分别测试 pH、湿度和温度模块
+
+每个 Sensor 有稳定、可重复的读数
+
+Phase 2 - Calibration
+
+pH 4/7 两点校准；湿度 dry/wet 校准
+
+记录校准参数和误差
+
+Phase 3 - Mechanical V2
+
+量实物尺寸并修改一体式外壳
+
+探针安全、内杯可拆、电子区防溅
+
+Phase 4 - Integration
+
+ESP32 同时读取并输出结果
+
+一次测试完成全部参数
+
+Phase 5 - Demo
+
+加入简单结果页面和建议规则
+
+组员可在 3 分钟内完整演示
+
+建议组员分工
+角色
+
+责任
+
+Hardware
+
+接线、供电保护、Sensor 单体测试
+
+Measurement
+
+样本 SOP、校准、重复性和误差记录
+
+Mechanical
+
+PH4502C 实物量测、3D V2、防溅与可清洗设计
+
+Firmware
+
+采样、过滤、校准、状态检查和数据输出
+
+UX / Presentation
+
+用户流程、结果解释、Demo Script 和风险说明
+
+Demo 验证清单
+□ 同一缓冲液重复测量差异可接受 □ pH 4 与 pH 7 能正确区分 □ 湿度干/湿变化方向正确 □ DS18B20 与参考温度接近
+□ 电子舱无进水 □ 用户能在无指导情况下完成流程 □ Dashboard 不夸大 NPK 或实验室精度
+
+参考资料
+1. DFRobot, Gravity Analog pH Meter Kit V2: https://www.dfrobot.com/product-1782.html
+2. European Commission JRC, soil pH using a 1:2.5 soil-water ratio:
+https://publications.jrc.ec.europa.eu/repository/bitstream/JRC19558/EUR%2019052%20EN.pdf
+3. UF/IFAS, Soil pH and Electrical Conductivity: https://ask.ifas.ufl.edu/publication/SS118
+4. Espressif, ESP32 ADC Calibration Driver: https://docs.espressif.com/projects/esp-idf/en/v5.0/esp32/api-reference/peripherals/adc_calibration.html
+5. USDA NRCS, Soil Electrical Conductivity Guide:
+https://cropwatch.unl.edu/sites/unl.edu.ianr.extension.cropwatch/files/media/file/USDA-NRCS-EC-guide.pdf
+6. QQ Trading Malaysia, RS485 Soil pH Sensor: https://qqtrading.com.my/soil-ph-sensor-agricultural-rs485-modbus
+
+最终对外说法：这是一个标准化、便携的一体式土壤样本检测原型。它降低了农民完成基础
+pH、湿度和温度检查的操作门槛，并把读数转成可理解的状态与下一步建议。
+
+Smart Soil 一体式土壤检测站 - Concept Brief
+
+第 10 页
+
+

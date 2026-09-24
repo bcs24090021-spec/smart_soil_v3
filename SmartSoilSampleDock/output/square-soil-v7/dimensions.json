@@ -1,0 +1,65 @@
+{
+  "V7_02_integrated_square_soil_tray.stl": {
+    "bounds_mm": [
+      120.0,
+      72.5,
+      66.0
+    ],
+    "volume_cm3_solid_mesh": 115.0,
+    "connected_components": 1,
+    "watertight_mesh": true
+  },
+  "V7_05_wide_probe_bridge.stl": {
+    "bounds_mm": [
+      120.0,
+      42.0,
+      4.0
+    ],
+    "volume_cm3_solid_mesh": 15.2,
+    "connected_components": 1,
+    "watertight_mesh": true
+  },
+  "V7_00_pH_fit_gauge_26_30_34.stl": {
+    "bounds_mm": [
+      120.0,
+      44.0,
+      3.0
+    ],
+    "volume_cm3_solid_mesh": 9.4,
+    "connected_components": 1,
+    "watertight_mesh": true
+  },
+  "V7_00_capacitive_fit_gauge_32x7.stl": {
+    "bounds_mm": [
+      42.0,
+      17.0,
+      3.0
+    ],
+    "volume_cm3_solid_mesh": 1.5,
+    "connected_components": 1,
+    "watertight_mesh": true
+  },
+  "V7_00_DS18B20_fit_gauge_8_10_12.stl": {
+    "bounds_mm": [
+      64.0,
+      22.0,
+      3.0
+    ],
+    "volume_cm3_solid_mesh": 3.5,
+    "connected_components": 1,
+    "watertight_mesh": true
+  },
+  "soil_cavity": {
+    "width_mm": 114.0,
+    "depth_mm": 56.0,
+    "height_mm": 62.0,
+    "geometric_maximum_ml": 396,
+    "practical_fill_note": "Keep soil and slurry below the rim; this is not a tested capacity."
+  },
+  "material_comparison": {
+    "old_v5_rear_dock_plus_cup_solid_mesh_cm3": 155.7,
+    "old_v5_rear_dock_plus_reduced_v6_cup_solid_mesh_cm3": 145.5,
+    "new_tray_solid_mesh_cm3": 115.0,
+    "note": "Mesh volumes, not slicer filament mass. Re-slice before claiming grams saved."
+  }
+}
